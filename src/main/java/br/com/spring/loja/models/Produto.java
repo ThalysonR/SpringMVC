@@ -1,6 +1,9 @@
 package br.com.spring.loja.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -11,9 +14,20 @@ public class Produto {
     private int id;
     private String titulo;
     private String descricao;
-    private String paginas;
+    private int paginas;
+    private LocalDate dataLancamento;
+
     @ElementCollection
     private List<Preco> precos;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    public LocalDate getDataLancamento() {
+        return dataLancamento;
+    }
+
+    public void setDataLancamento(LocalDate dataLancamento) {
+        this.dataLancamento = dataLancamento;
+    }
 
     public List<Preco> getPrecos() {
         return precos;
@@ -47,11 +61,11 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public String getPaginas() {
+    public int getPaginas() {
         return paginas;
     }
 
-    public void setPaginas(String paginas) {
+    public void setPaginas(int paginas) {
         this.paginas = paginas;
     }
 

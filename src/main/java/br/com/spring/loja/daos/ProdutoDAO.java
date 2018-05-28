@@ -6,6 +6,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 @Repository
 @Transactional
@@ -16,5 +19,11 @@ public class ProdutoDAO {
 
     public void gravar(Produto produto) {
         manager.persist(produto);
+    }
+
+    public List<Produto> lista() {
+        String jpql = "SELECT p FROM Produto p";
+        TypedQuery<Produto> query = manager.createQuery(jpql, Produto.class);
+        return query.getResultList();
     }
 }
