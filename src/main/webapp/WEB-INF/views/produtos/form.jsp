@@ -1,51 +1,50 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: sys4
-  Date: 24/05/18
-  Time: 15:23
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="f" %>
-<%--<%@ taglib uri="http://www.springframework.org/tags/" prefix="s" %>--%>
-<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Form</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Livros de Java, Android, iPhone, Ruby, PHP e muito mais - Casa do Código</title>
 </head>
 <body>
-    <%--@elvariable id="produto" type="Produto"--%>
-    <f:form action="${s:mvcUrl('PC#grava').build()}" method="post" commandName="produto">
-        <div>
-            <label for="titulo">Titulo</label>
-            <input id="titulo" type="text" name="titulo">
-            <f:errors path="titulo" />
-        </div>
-        <div>
-            <label for="descricao">Descrição</label>
-            <textarea id="descricao" name="descricao" rows="10" cols="20"></textarea>
-            <f:errors path="descricao" />
-        </div>
-        <div>
-            <label for="paginas">Paginas</label>
-            <input type="number" id="paginas" name="paginas">
-            <f:errors path="paginas" />
-        </div>
-        <div>
-            <label for="data">Data de Lançamento</label>
-            <input type="date" id="data" name="dataLancamento">
-            <f:errors path="dataLancamento" />
-        </div>
-        <h3>Preços:</h3>
-        <c:forEach items="${tipos}" var="tipo" varStatus="status">
-            <div>
-                <label for="${tipo}">${tipo}</label>
-                <input type="text" id="${tipo}" name="precos[${tipo.numero}].valor">
-                <input type="hidden" name="precos[${tipo.numero}].tipo" value="${tipo}">
-            </div>
-        </c:forEach>
-        <button type="submit">Cadastrar</button>
-    </f:form>
+	<h1>Casa do Código</h1>
+	<form:form action="${s:mvcUrl('PC#gravar').build() }" method="post" commandName="produto" enctype="multipart/form-data">
+		<div>
+			<label>Título</label>
+			<form:input path="titulo" />
+			<form:errors path="titulo" />
+		</div>
+		<div>
+	        <label>Descrição</label>
+			<form:textarea rows="10" cols="20" path="descricao" />
+	        <form:errors path="descricao" />
+		</div>
+		<div>
+			<label>Páginas</label>
+			<form:input path="paginas" />
+	        <form:errors path="paginas" />
+		</div>
+		<div>
+			<label>Data de  Lançamento</label>
+			<form:input path="dataLancamento" />
+	        <form:errors path="dataLancamento" />
+		</div>
+		<c:forEach items="${tipos}" var="tipoPreco" varStatus="status">
+			<div>
+				<label>${tipoPreco}</label>
+				<form:input path="precos[${status.index}].valor" />
+				<form:hidden path="precos[${status.index}].tipo" value="${tipoPreco}"/>
+			</div>
+		</c:forEach>
+		<div>
+		    <label>Sumário</label>
+		    <input name="sumario" type="file" />
+		</div>
+		<button type="submit">Cadastrar</button>
+	</form:form>
 </body>
 </html>

@@ -1,16 +1,12 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: sys4
-  Date: 24/05/18
-  Time: 15:46
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+        <html>
 <head>
-    <title>OK</title>
+<meta charset="UTF-8">
+<title>Livros de Java, Android, iPhone, Ruby, PHP e muito mais - Casa do Código</title>
 </head>
 <body>
-    <h1>Produto adicionado com sucesso!</h1>
+ <h1>Produto cadastrado com sucesso!</h1>
 </body>
 </html>
