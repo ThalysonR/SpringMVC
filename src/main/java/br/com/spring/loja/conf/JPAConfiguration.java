@@ -1,13 +1,16 @@
 package br.com.spring.loja.conf;
 
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Properties;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -17,7 +20,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @EnableTransactionManagement
 public class JPAConfiguration {
-	
+
+	@Autowired
+	private Environment environment;
+
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		
@@ -25,17 +31,12 @@ public class JPAConfiguration {
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		factoryBean.setJpaVendorAdapter(vendorAdapter);
 
-		JPAProductionConfiguration prod = new JPAProductionConfiguration();
 
-		DriverManagerDataSource dataSource = null;
-		try {
-			dataSource = prod.getDriverManagerDataSource();
-		} catch (URISyntaxException e) {
-			e.printStackTrace();
-		}
+		DriverManagerDataSource dataSource = getDriverManagerDataSource();
+
 		factoryBean.setDataSource(dataSource);
 
-		Properties properties = prod.getProperties();
+		Properties properties = getProperties();
 		
 		factoryBean.setJpaProperties(properties);
 		factoryBean.setPackagesToScan("br.com.spring.loja.models");
@@ -43,27 +44,33 @@ public class JPAConfiguration {
 		return factoryBean;
 	}
 
-//	@Bean
-//	@Profile("dev")
-//	private Properties getProperties() {
-//		Properties properties = new Properties();
-//		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL92Dialect");
-//		properties.setProperty("hibernate.show_sql", "true");
-//		properties.setProperty("hibernate.hbm2ddl.auto", "update");
-//		return properties;
-//	}
+	@Bean
+	@Profile("prod")
+	private Properties getProperties() {
+		Properties properties = new Properties();
+		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL92Dialect");
+		properties.setProperty("hibernate.show_sql", "true");
+		properties.setProperty("hibernate.hbm2ddl.auto", "update");
+		return properties;
+	}
 
-//	@Bean
-//	@Profile("dev")
-//	private DriverManagerDataSource getDriverManagerDataSource() {
-//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//		dataSource.setDriverClassName("org.postgresql.Driver");
-//
-//		dataSource.setUsername("teste");
-//		dataSource.setPassword("123456");
-//		dataSource.setUrl("jdbc:postgresql://localhost/springmvc");
-//		return dataSource;
-//	}
+	@Bean
+	@Profile("prod")
+	private DriverManagerDataSource getDriverManagerDataSource() {
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName("org.postgresql.Driver");
+
+		URI dbUrl = null;
+		try {
+			dbUrl = new URI(environment.getProperty("DATABASE_URL"));
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
+		dataSource.setUsername(dbUrl.getUserInfo().split(":")[0]);
+        dataSource.setPassword(dbUrl.getUserInfo().split(":")[1]);
+        dataSource.setUrl("jdbc:postgresql://" + dbUrl.getHost() + ":" + dbUrl.getPort() + dbUrl.getPath());
+        return dataSource;
+    }
 
 	@Bean
 	public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
