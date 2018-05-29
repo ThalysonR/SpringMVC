@@ -1,5 +1,6 @@
 package br.com.spring.loja.conf;
 
+import java.net.URISyntaxException;
 import java.util.Properties;
 
 import javax.persistence.EntityManagerFactory;
@@ -18,16 +19,23 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class JPAConfiguration {
 	
 	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, Properties properties) {
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		factoryBean.setJpaVendorAdapter(vendorAdapter);
 
-//		DriverManagerDataSource dataSource = getDriverManagerDataSource();
+		JPAProductionConfiguration prod = new JPAProductionConfiguration();
+
+		DriverManagerDataSource dataSource = null;
+		try {
+			dataSource = prod.getDriverManagerDataSource();
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
 		factoryBean.setDataSource(dataSource);
 
-//		Properties properties = getProperties();
+		Properties properties = prod.getProperties();
 		
 		factoryBean.setJpaProperties(properties);
 		factoryBean.setPackagesToScan("br.com.spring.loja.models");

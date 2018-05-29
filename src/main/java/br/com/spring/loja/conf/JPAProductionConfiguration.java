@@ -17,7 +17,7 @@ public class JPAProductionConfiguration {
     private Environment environment;
 
     @Bean
-    private Properties getProperties() {
+    public Properties getProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL92Dialect");
         properties.setProperty("hibernate.show_sql", "true");
@@ -26,7 +26,7 @@ public class JPAProductionConfiguration {
     }
 
     @Bean
-    private DriverManagerDataSource getDriverManagerDataSource() throws URISyntaxException {
+    public DriverManagerDataSource getDriverManagerDataSource() throws URISyntaxException {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
 
