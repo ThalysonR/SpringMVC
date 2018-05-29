@@ -16,7 +16,7 @@ public class JPAProductionConfiguration {
 
 
     @Bean
-    private Properties aditionalProperties(){
+    private Properties getProperties(){
         Properties props = new Properties();
         props.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL9Dialect");
         props.setProperty("hibernate.show_sql", "true");
@@ -26,6 +26,7 @@ public class JPAProductionConfiguration {
 
     @Bean
     public DriverManagerDataSource dataSource() throws URISyntaxException {
+        System.out.println("Entrou no prod");
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
 
