@@ -25,7 +25,7 @@ public class JPAConfiguration {
 	private Environment environment;
 
 	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, Properties properties) {
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
 		
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
@@ -36,7 +36,7 @@ public class JPAConfiguration {
 
 		factoryBean.setDataSource(dataSource);
 
-//		Properties properties = getProperties();
+		Properties properties = additionalProperties();
 		
 		factoryBean.setJpaProperties(properties);
 		factoryBean.setPackagesToScan("br.com.spring.loja.models");
