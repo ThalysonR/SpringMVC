@@ -45,7 +45,7 @@ public class JPAConfiguration {
 	}
 
 	@Bean
-	@Profile("prod")
+	@Profile("dev")
 	private Properties additionalProperties() {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL9Dialect");
@@ -55,7 +55,7 @@ public class JPAConfiguration {
 	}
 
 	@Bean
-	@Profile("prod")
+	@Profile("dev")
 	private DriverManagerDataSource getDriverManagerDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
