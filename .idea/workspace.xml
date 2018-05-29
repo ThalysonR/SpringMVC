@@ -7,9 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d4ac681-ff28-4e20-b5f7-85ec4b87f8d1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/spring/loja/conf/JPAConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/spring/loja/conf/JPAConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/spring/loja/conf/JPAProductionConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/spring/loja/conf/JPAProductionConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/spring/loja/conf/JPAProductionConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CasaDoCodigo/WEB-INF/classes/br/com/spring/loja/conf/JPAConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CasaDoCodigo/WEB-INF/classes/br/com/spring/loja/conf/JPAConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CasaDoCodigo/WEB-INF/classes/br/com/spring/loja/conf/ServletSpringMVC.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CasaDoCodigo/WEB-INF/classes/br/com/spring/loja/conf/ServletSpringMVC.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CasaDoCodigo/WEB-INF/lib/el-api-2.1.2-b05.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CasaDoCodigo/WEB-INF/lib/javax.servlet-3.0-b70.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/spring/loja/conf/JPAConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/spring/loja/conf/JPAConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/spring/loja/conf/ServletSpringMVC.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/spring/loja/conf/ServletSpringMVC.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -109,22 +113,12 @@
       <file leaf-file-name="JPAConfiguration.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/com/spring/loja/conf/JPAConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+            <state relative-caret-position="-198">
+              <caret line="10" column="44" lean-forward="true" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="e#2123#2124#0" expanded="true" />
                 <element signature="e#2167#2168#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JPAProductionConfiguration.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/br/com/spring/loja/conf/JPAProductionConfiguration.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="29" column="6" lean-forward="true" selection-start-line="29" selection-start-column="6" selection-end-line="37" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -507,7 +501,7 @@
       <workItem from="1527186255323" duration="7737000" />
       <workItem from="1527334082716" duration="11708000" />
       <workItem from="1527506341971" duration="29724000" />
-      <workItem from="1527593510970" duration="19363000" />
+      <workItem from="1527593510970" duration="19468000" />
     </task>
     <task id="LOCAL-00001" summary="Treinamento em andamento">
       <created>1527347443198</created>
@@ -621,7 +615,14 @@
       <option name="project" value="LOCAL" />
       <updated>1527620972818</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Alterações p Heroku">
+      <created>1527621481423</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1527621481423</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -657,7 +658,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68532000" />
+    <option name="totallyTimeSpent" value="68637000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1994" y="38" width="1717" height="976" extended-state="0" />
@@ -1097,10 +1098,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/com/spring/loja/conf/JPAConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+        <state relative-caret-position="-198">
+          <caret line="10" column="44" lean-forward="true" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="e#2123#2124#0" expanded="true" />
             <element signature="e#2167#2168#0" expanded="true" />
           </folding>
