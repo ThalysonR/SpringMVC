@@ -2,6 +2,7 @@ package br.com.spring.loja.controllers;
 
 import java.util.List;
 
+import javax.persistence.NoResultException;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,7 @@ public class ProdutosController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	@CacheEvict(value = "produtosHome", allEntries = true)
+	@CacheEvict(value="produtosHome", allEntries=true)
 	public ModelAndView gravar(MultipartFile sumario, @Valid Produto produto, BindingResult result, 
 				RedirectAttributes redirectAttributes){
 		
@@ -56,9 +57,9 @@ public class ProdutosController {
 		
 		dao.gravar(produto);
 		
-		redirectAttributes.addFlashAttribute("sucesso", "Produto cadastrado com sucesso!");
+		redirectAttributes.addFlashAttribute("message", "Produto cadastrado com sucesso!");
 		
-		return new ModelAndView("redirect:produtos");
+		return new ModelAndView("redirect:/produtos");
 	}
 	
 	@RequestMapping( method=RequestMethod.GET)
@@ -74,12 +75,8 @@ public class ProdutosController {
 	    ModelAndView modelAndView = new ModelAndView("/produtos/detalhe");
 	    Produto produto = dao.find(id);
 	    modelAndView.addObject("produto", produto);
+
+	    if (true) throw new RuntimeException("Exceção Genérica");
 	    return modelAndView;
 	}
-
-    @RequestMapping("/{id}")
-    @ResponseBody
-    public Produto detalheJson(@PathVariable("id") Integer id) {
-	    return dao.find(id);
-    }
 }

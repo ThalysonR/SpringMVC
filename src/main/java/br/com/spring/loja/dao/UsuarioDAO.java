@@ -1,27 +1,31 @@
 package br.com.spring.loja.dao;
 
-import br.com.spring.loja.models.Usuario;
-import org.springframework.stereotype.Repository;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.List;
+
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Repository;
+
+import br.com.spring.loja.models.Usuario;
 
 @Repository
-public class UsuarioDAO {
+public class UsuarioDAO implements UserDetailsService{
 
-    @PersistenceContext
-    private EntityManager manager;
+	@PersistenceContext
+	private EntityManager manager;
 
-    public Usuario find(String email) {
-        List<Usuario> usuarios = manager.createQuery("SELECT u FROM Usuario WHERE u.email = :email")
-                .setParameter("email", email)
-                .getResultList();
-
-        if (usuarios.isEmpty()) {
-            throw new RuntimeException("Usuário " + email + " não foi encontrado");
-        }
-
-        return usuarios.get(0);
-    }
+	public Usuario loadUserByUsername(String email) {
+		List<Usuario> usuarios = manager.createQuery("select u from Usuario u where email = :email", Usuario.class)
+				.setParameter("email", email)
+				.getResultList();
+		
+		if(usuarios.isEmpty()) {
+			throw new UsernameNotFoundException("Usuario " + email + " não foi encontrado");
+		}
+		
+		return usuarios.get(0);
+	}
 }

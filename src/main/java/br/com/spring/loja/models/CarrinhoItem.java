@@ -3,7 +3,7 @@ package br.com.spring.loja.models;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class CarrinhoItem implements Serializable {
+public class CarrinhoItem implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 

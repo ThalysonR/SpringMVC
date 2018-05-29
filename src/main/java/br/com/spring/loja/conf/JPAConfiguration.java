@@ -3,8 +3,10 @@ package br.com.spring.loja.conf;
 import java.util.Properties;
 
 import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -16,28 +18,40 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class JPAConfiguration {
 	
 	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
 		
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		factoryBean.setJpaVendorAdapter(vendorAdapter);
-		
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setUsername("teste");
-		dataSource.setPassword("123456");
-		dataSource.setUrl("jdbc:postgresql://localhost/springmvc");
-        dataSource.setDriverClassName("org.postgresql.Driver");
+
+//		DriverManagerDataSource dataSource = getDriverManagerDataSource();
 		factoryBean.setDataSource(dataSource);
-		
-		Properties properties = new Properties();
-		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL9Dialect");
-		properties.setProperty("hibernate.show_sql", "true");
-		properties.setProperty("hibernate.hbm2ddl.auto", "update");
+
+		Properties properties = getProperties();
 		
 		factoryBean.setJpaProperties(properties);
 		factoryBean.setPackagesToScan("br.com.spring.loja.models");
 		
 		return factoryBean;
+	}
+
+	private Properties getProperties() {
+		Properties properties = new Properties();
+		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL92Dialect");
+		properties.setProperty("hibernate.show_sql", "true");
+		properties.setProperty("hibernate.hbm2ddl.auto", "update");
+		return properties;
+	}
+
+	@Bean
+	@Profile("dev")
+	private DriverManagerDataSource getDriverManagerDataSource() {
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setUsername("teste");
+		dataSource.setPassword("123456");
+		dataSource.setUrl("jdbc:postgresql://localhost/springmvc");
+		dataSource.setDriverClassName("org.postgresql.Driver");
+		return dataSource;
 	}
 
 	@Bean

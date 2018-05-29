@@ -3,15 +3,17 @@ package br.com.spring.loja.models;
 import java.math.BigDecimal;
 
 public class DadosPagamento {
-    private final BigDecimal value;
+	
+	private BigDecimal value;
 
-    public DadosPagamento(BigDecimal value) {
-        this.value = value;
-    }
+	public DadosPagamento(BigDecimal value) {
+		this.value = value;
+	}
 
+	public DadosPagamento() {
+	}
 
-
-    public BigDecimal getValue() {
-        return value;
-    }
+	public BigDecimal getValue() {
+		return value;
+	}
 }
