@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="CasaDoCodigo:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="CasaDoCodigo.war">
+      <element id="artifact" artifact-name="CasaDoCodigo:war exploded" />
+    </root>
+  </artifact>
+</component>

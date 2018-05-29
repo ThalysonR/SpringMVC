@@ -1,0 +1,12 @@
+Spring MVC - 417 mins - 7 hrs
+Spring Boot - 165 mins -  2hrs 45 mins
+Hibernate/JPA - 130 mins - 2 hrs
+Spring MVC 2 - 367 mins - 6hrs 10 mins
+Maven - 183 mins - 3 hrs
+Hibernate/JPA 2 - 108 mins - 1 hr 48 mins
+
+
+JPA e Spring MVC -> Trello
+
+ultima: https://cursos.alura.com.br/course/spring-mvc-1-criando-aplicacoes-web/task/11394
+Php legado = smb://192.168.150.116/web_116/pemaza/conferencia_movel/cfma002
