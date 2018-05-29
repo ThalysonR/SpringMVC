@@ -45,17 +45,17 @@ public class JPAConfiguration {
 //		return properties;
 //	}
 
-	@Bean
-	@Profile("dev")
-	private DriverManagerDataSource getDriverManagerDataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("org.postgresql.Driver");
-
-		dataSource.setUsername("teste");
-		dataSource.setPassword("123456");
-		dataSource.setUrl("jdbc:postgresql://localhost/springmvc");
-		return dataSource;
-	}
+//	@Bean
+//	@Profile("dev")
+//	private DriverManagerDataSource getDriverManagerDataSource() {
+//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//		dataSource.setDriverClassName("org.postgresql.Driver");
+//
+//		dataSource.setUsername("teste");
+//		dataSource.setPassword("123456");
+//		dataSource.setUrl("jdbc:postgresql://localhost/springmvc");
+//		return dataSource;
+//	}
 
 	@Bean
 	public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
