@@ -55,7 +55,7 @@
     <dependency>
       <groupId>org.apache.tomcat</groupId>
       <artifactId>tomcat-servlet-api</artifactId>
-      <version>7.0.76</version>
+      <version>8.0.50</version>
       <scope>provided</scope>
     </dependency>
 
@@ -228,14 +228,6 @@
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-test</artifactId>
       <version>5.0.3.RELEASE</version>
-    </dependency>
-
-<!--quebras heroku-->
-
-    <dependency>
-      <groupId>javax.el</groupId>
-      <artifactId>javax.el-api</artifactId>
-      <version>3.0.1-b04</version>
     </dependency>
   </dependencies>
 </project>
