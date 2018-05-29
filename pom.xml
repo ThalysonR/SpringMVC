@@ -229,5 +229,13 @@
       <artifactId>spring-security-test</artifactId>
       <version>5.0.3.RELEASE</version>
     </dependency>
+
+<!--quebras heroku-->
+
+    <dependency>
+      <groupId>javax.el</groupId>
+      <artifactId>javax.el-api</artifactId>
+      <version>3.0.1-b04</version>
+    </dependency>
   </dependencies>
 </project>
