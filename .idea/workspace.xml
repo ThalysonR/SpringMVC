@@ -8,6 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3d4ac681-ff28-4e20-b5f7-85ec4b87f8d1" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/spring/loja/conf/JPAConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/spring/loja/conf/JPAConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/spring/loja/conf/JPAProductionConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/spring/loja/conf/JPAProductionConfiguration.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -105,11 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JPAConfiguration.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="JPAConfiguration.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/com/spring/loja/conf/JPAConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-270">
-              <caret line="42" column="8" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+            <state relative-caret-position="108">
+              <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2123#2124#0" expanded="true" />
@@ -119,11 +120,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JPAProductionConfiguration.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="JPAProductionConfiguration.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/com/spring/loja/conf/JPAProductionConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="32" column="53" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
+            <state relative-caret-position="271">
+              <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -208,8 +209,8 @@
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/br/com/spring/loja/conf/ServletSpringMVC.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/com/spring/loja/conf/JPAConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/com/spring/loja/conf/JPAProductionConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/com/spring/loja/conf/JPAConfiguration.java" />
       </list>
     </option>
   </component>
@@ -509,7 +510,7 @@
       <workItem from="1527186255323" duration="7737000" />
       <workItem from="1527334082716" duration="11708000" />
       <workItem from="1527506341971" duration="29724000" />
-      <workItem from="1527593510970" duration="21246000" />
+      <workItem from="1527593510970" duration="21561000" />
     </task>
     <task id="LOCAL-00001" summary="Treinamento em andamento">
       <created>1527347443198</created>
@@ -665,7 +666,21 @@
       <option name="project" value="LOCAL" />
       <updated>1527623133701</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Alterações p Heroku">
+      <created>1527623365507</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1527623365507</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Alterações p Heroku">
+      <created>1527623533894</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1527623533894</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -701,7 +716,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70415000" />
+    <option name="totallyTimeSpent" value="70730000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1994" y="38" width="1717" height="976" extended-state="0" />
@@ -1125,18 +1140,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/spring/loja/conf/JPAConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-270">
-          <caret line="42" column="8" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2123#2124#0" expanded="true" />
-            <element signature="e#2167#2168#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/com/spring/loja/conf/ServletSpringMVC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-138">
@@ -1146,10 +1149,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/com/spring/loja/conf/JPAProductionConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="32" column="53" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
+        <state relative-caret-position="271">
+          <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/spring/loja/conf/JPAConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2123#2124#0" expanded="true" />
+            <element signature="e#2167#2168#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -18,7 +18,7 @@ public class JPAProductionConfiguration {
 
 
     @Bean
-    private Properties getProperties(){
+    private Properties additionalProperties(){
         Properties props = new Properties();
         props.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL9Dialect");
         props.setProperty("hibernate.show_sql", "true");

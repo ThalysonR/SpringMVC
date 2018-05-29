@@ -46,7 +46,7 @@ public class JPAConfiguration {
 
 	@Bean
 	@Profile("prod")
-	private Properties getProperties() {
+	private Properties additionalProperties() {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL9Dialect");
 		properties.setProperty("hibernate.show_sql", "true");
