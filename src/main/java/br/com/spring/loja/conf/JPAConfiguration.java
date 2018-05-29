@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class JPAConfiguration {
 	
 	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, Properties properties) {
 		
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
@@ -27,7 +27,7 @@ public class JPAConfiguration {
 //		DriverManagerDataSource dataSource = getDriverManagerDataSource();
 		factoryBean.setDataSource(dataSource);
 
-		Properties properties = getProperties();
+//		Properties properties = getProperties();
 		
 		factoryBean.setJpaProperties(properties);
 		factoryBean.setPackagesToScan("br.com.spring.loja.models");
@@ -35,6 +35,8 @@ public class JPAConfiguration {
 		return factoryBean;
 	}
 
+	@Bean
+	@Profile("dev")
 	private Properties getProperties() {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL92Dialect");
@@ -47,10 +49,11 @@ public class JPAConfiguration {
 	@Profile("dev")
 	private DriverManagerDataSource getDriverManagerDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName("org.postgresql.Driver");
+
 		dataSource.setUsername("teste");
 		dataSource.setPassword("123456");
 		dataSource.setUrl("jdbc:postgresql://localhost/springmvc");
-		dataSource.setDriverClassName("org.postgresql.Driver");
 		return dataSource;
 	}
 
